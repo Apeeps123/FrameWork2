@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Data Kapal</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<%- include("../partials/nav.ejs") %>
+
+<div class="container">
+  <h1 class="text-center mb-5 mt-2">Edit Data Kapal</h1>
+  <form action="/kapal/update/<%= id %>" method="POST">
+    <div class="form-group">
+      <label for="nama_kapal">Nama Kapal</label>
+      <input type="text" class="form-control" name="nama_kapal" value="<%= nama_kapal %>" required>
+    </div>
+    <div class="form-group">
+      <label for="id_pemilik">Nama Pemilik</label>
+      <select class="form-control" name="id_pemilik" required>
+        <% for(var i=0; i < dataPemilik.length; i++){ %>
+          <% if(dataPemilik[i].id_pemilik === id_pemilik){ %>
+            <option value="<%= dataPemilik[i].id_pemilik %>" selected><%= dataPemilik[i].nama_pemilik %></option>
+          <% } else { %>
+            <option value="<%= dataPemilik[i].id_pemilik %>"><%= dataPemilik[i].nama_pemilik %></option>
+          <% } %>
+        <% } %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="id_dpi">Nama DPI</label>
+      <select class="form-control" name="id_dpi" required>
+        <% for(var i=0; i < dataDpi.length; i++){ %>
+          <% if(dataDpi[i].id_dpi === id_dpi){ %>
+            <option value="<%= dataDpi[i].id_dpi %>" selected><%= dataDpi[i].nama_dpi %></option>
+          <% } else { %>
+            <option value="<%= dataDpi[i].id_dpi %>"><%= dataDpi[i].nama_dpi %></option>
+          <% } %>
+        <% } %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="id_alat_tangkap">Nama Alat Tangkap</label>
+      <select class="form-control" name="id_alat_tangkap" required>
+        <% for(var i=0; i < dataAlatTangkap.length; i++){ %>
+          <% if(dataAlatTangkap[i].id_alat_tangkap === id_alat_tangkap){ %>
+            <option value="<%= dataAlatTangkap[i].id_alat_tangkap %>" selected><%= dataAlatTangkap[i].nama_alat_tangkap %></option>
+          <% } else { %>
+            <option value="<%= dataAlatTangkap[i].id_alat_tangkap %>"><%= dataAlatTangkap[i].nama_alat_tangkap %></option>
+          <% } %>
+        <% } %>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Simpan</button>
+  </form>
+</div>
+
+<%- include("../partials/foot.ejs") %>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

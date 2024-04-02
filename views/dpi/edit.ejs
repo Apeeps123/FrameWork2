@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit DPI</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<%- include("../partials/nav.ejs") %>
+
+<div class="container mt-5">
+  <h2>Edit DPI</h2>
+  <form action="/dpi/update/<%= id %>" method="POST">
+    <div class="form-group">
+      <label for="nama_dpi">Nama DPI</label>
+      <input type="text" class="form-control" id="nama_dpi" name="nama_dpi" value="<%= nama_dpi %>" required>
+    </div>
+    <div class="form-group">
+      <label for="luas">Luas</label>
+      <input type="number" class="form-control" id="luas" name="luas" value="<%= luas %>" required>
+    </div>
+    <button type="submit" class="btn btn-success">Simpan</button>
+  </form>
+</div>
+
+<%- include("../partials/foot.ejs") %>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
